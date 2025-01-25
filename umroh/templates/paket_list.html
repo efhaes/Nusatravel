@@ -1,0 +1,97 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Paket Umroh</title>
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <!-- Tambahkan Bootstrap -->
+
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="logo">
+                <img src="{% static 'images/logotravel.png' %}" alt="Nusa Travel">
+            </div>
+            
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">Tentang</a></li>
+                    <li><a href="{%url 'paket_list'%}">Paket Umroh</a></li>
+                    <li><a href="{% url 'land_arrangement_service' %}">Land Arrangement</a></li>
+                    <li><a href="{% url 'contact' %}">Kontak</a></li>
+                    <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Paket Umroh Tersedia</h1>
+            <p>Allah tidak memanggil orang – orang yang mampu, tapi Allah memampukan orang – orang yang terpanggil untuk berkunjung ke Baitullah.</p>
+        </div>
+    </section>
+    
+    <section class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>PAKET UMROH NUSA TRAVEL CABANG TANGERANG</h2>
+                <h3>Pilih paket terbaik untuk perjalanan ibadah Anda</h3>
+            </div>
+            <div class="card-grid">
+                {% for paket in paket_umroh %}
+                <div class="card">
+                    <a href="{% url 'paket_detail' paket.id %}">
+                        <img src="{{ paket.gambar.url }}" alt="{{ paket.nama_paket }}">
+                    </a>
+                    <div class="card-content">
+                        <h3>{{ paket.nama_paket }}</h3>
+                        <p class="price">Rp. {{ paket.harga|floatformat:2 }}JT</p>
+
+                    </div>
+                    <div class="cta">
+                        <a href="" 
+                           class="whatsapp-link" 
+                           data-paket="{{ paket.nama_paket }}" 
+                           data-harga="{{ paket.harga|floatformat:2 }}">DAFTAR SEKARANG</a>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="empty-message">Belum ada paket tersedia saat ini.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p><strong>Nusa Travel CABANG TANGERANG</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+                <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
+                <p><strong>ALAMAT:</strong> 
+                    <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
+                </p>
+                <p><strong>Nusa Travel Sejak Tahun 2019 – 2025</strong></p>
+            </div>
+            <div class="footer-logo">
+                <img src="{% static 'images/partner.png' %}" alt="Partner Logos">
+                <img src="{% static 'images/maskapai.png' %}" alt="Airline Logos">
+            </div>
+        </div>
+        <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Tambahkan Bootstrap JS -->
+    <script src="{% static 'js/list.js' %}"></script>
+
+
+</body>
+</html>

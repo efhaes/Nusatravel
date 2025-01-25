@@ -1,0 +1,139 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Arrangement - Nusa Travel</title>
+    <link rel="stylesheet" href="{% static 'css/land.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="logo">
+                <img src="{% static 'images/logotravel.png' %}" alt="Nusa Travel">
+            </div>
+            
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">Tentang</a></li>
+                    <li><a href="{%url 'paket_list'%}">Paket Umroh</a></li>
+                    <li><a href="{% url 'land_arrangement_service' %}">Land Arrangement</a></li>
+                    <li><a href="{% url 'contact' %}">Kontak</a></li>
+                    <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="info-section" class="info-section">
+            <div class="container">
+                <div class="info-content">
+                    <div class="info-text">
+                        <h2>Land Arrangement Services</h2>
+                        <p>
+                            Nusa Travel menyediakan paket Land Arrangement (LA), Paket Jeddah-Jeddah / Madinah-Jeddah untuk penyelenggara Umroh dalam melayani Tamu Allah dengan harga yang kompetitif dan pelayanan maksimal.
+                        </p>
+                        <p>
+                            Kami memiliki tim yang solid yang akan melayani dan membantu Anda mulai dari Jeddah, Madinah, hingga Mekkah. Kami siap melayani Anda untuk kenyamanan ibadah para Tamu Allah. Silakan hubungi kami di 081210618231.
+                        </p>
+                    </div>
+                    <div class="info-image">
+                        <img src="{% static 'images/umroh.png' %}" alt="Travel Agency">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <div class="paket-list">
+            {% for paket in paket_land_arrangement %}
+            <div class="paket-item {{ paket.css_class }}">
+                <div class="paket-header">
+                    <h2>{{ paket.nama_paket }}</h2>
+                    <p>{{ paket.deskripsi }}</p>
+                </div>
+                <div class="paket-body">
+                    <h3>Rp {{ paket.harga|floatformat:2 }}/pack</h3>
+                    <ul>
+                        <li><strong>Hotel Mekkah:</strong> {{ paket.hotel_mekkah }}</li>
+                        <li><strong>Hotel Madinah:</strong> {{ paket.hotel_madinah }}</li>
+                    </ul>
+                    <button class="pesan-button">Pesan Sekarang</button>
+                </div>
+            </div>
+            {% empty %}
+            <p>Belum ada paket untuk Land Arrangement saat ini.</p>
+            {% endfor %}
+        </div>
+    </main>
+
+
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span>Paket Termasuk</span>
+                <span class="icon">➕</span>
+            </div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Handling Airport</li>
+                    <li>Mutowif / Guide</li>
+                    <li>Nasi Box/Makan (saat datang dan pulang)</li>
+                    <li>Check in – Check out Hotel</li>
+                    <li>Bus AC</li>
+                    <li>Tip Driver dan Bellboy</li>
+                    <li>Air Zamzam</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span>Term of Conditions</span>
+                <span class="icon">➕</span>
+            </div>
+            <div class="accordion-content">
+                <ul>
+                    <li>Harga berlaku untuk musim 1445 H. Harga dapat berubah menyesuaikan rilis resmi hotel.</li>
+                    <li>Paket meliputi 3 Malam di Madinah dan 4 Malam di Mekkah (Paket Umroh 9 Hari). Penambahan hari akan disesuaikan</li>
+                    <li>Minimum pax 30, lebih atau kurang akan ada penyesuaian harga</li>
+                    <li>Untuk Paket VIP, Private, Hotel Kombinasi, silakan hubungi kami di 081210618231l</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p><strong>Nusa Travel CABANG TANGERANG</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+                <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
+                <p><strong>ALAMAT:</strong> 
+                    <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
+                </p>
+                <p><strong>Nusa Travel Sejak Tahun 2019 – 2025</strong></p>
+            </div>
+            <div class="footer-logo">
+                <img src="{% static 'images/partner.png' %}" alt="Partner Logos">
+                <img src="{% static 'images/maskapai.png' %}" alt="Airline Logos">
+            </div>
+        </div>
+        <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/land.js' %}"></script>
+</body>
+</html>

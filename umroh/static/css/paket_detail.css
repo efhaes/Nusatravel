@@ -1,0 +1,282 @@
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color:  #a3066c;
+    color: #fff;
+}
+
+/* Navbar Default */
+.navbar {
+    background-color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #666;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Shrink Effect */
+.navbar.shrink {
+    padding: 5px 20px;
+    background-color: #f8f8f8;
+}
+
+.navbar-inner {
+    display: flex; /* Mengatur elemen dalam satu baris */
+    justify-content: space-between; /* Memberi jarak antara logo dan menu */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    max-width: 1200px; /* Membatasi lebar navbar */
+    margin: 0 auto; /* Agar navbar berada di tengah */
+}
+
+/* Logo */
+.logo img {
+    width: 130px; /* Ukuran default logo */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar.shrink .logo img {
+    width: 100px; /* Ukuran logo mengecil */
+}
+
+/* Navigation Menu */
+/* Navigation Menu */
+nav ul {
+    display: flex; /* Menjadikan menu dalam satu baris */
+    gap: 30px; /* Memberi jarak antar menu */
+    list-style: none; /* Menghilangkan bullet point */
+    margin: 0; /* Menghapus margin default */
+    padding: 0; /* Menghapus padding default */
+}
+
+nav ul li {
+    position: relative; /* Dibutuhkan untuk border bottom effect */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan underline */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold; /* Tebalkan font */
+    color: #555; /* Warna teks default */
+    padding: 10px 5px; /* Ruang di sekitar teks */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #a3066c; /* Warna saat hover */
+}
+
+/* Active Link */
+nav ul li a.active {
+    color: #666; /* Warna teks untuk menu aktif */
+    border-bottom: 2px solid #a3066c; /* Garis bawah untuk menu aktif */
+}
+
+
+/* Responsive Navbar */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #666;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo img {
+        width: 130px;
+        transition: width 0.3s ease-in-out;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 200px;
+        height: 100%;
+        background-color: #f8f8f8;
+        border-right: 1px solid #666;
+        transition: left 0.3s ease;
+        padding-top: 50px;
+    }
+
+    nav ul.active {
+        left: 0;
+    }
+
+    nav ul li {
+        padding: 5px 5px;
+        margin-bottom: 2px;
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Hover Effect - Garis bawah animasi */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #a3066c;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Garis bawah muncul saat hover */
+}
+/* Paket Detail Section */
+#paket-detail {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#paket-detail h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.paket-detail-image {
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+.paket-detail-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Styles */
+.paket-detail-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.card {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .icon {
+    margin-bottom: 15px;
+}
+
+.card .icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Button */
+.cta {
+    margin-top: 40px;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: #32CD32;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta a:hover {
+    background-color: #28a745;
+}
+footer {
+    background-color: #9c346a; /* Warna latar belakang sesuai gambar */
+    color: white;
+    padding: 30px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Agar tetap rapi di layar kecil */
+}
+
+.footer-text {
+    max-width: 60%;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.footer-text strong {
+    font-weight: bold;
+}
+
+.footer-text .highlight {
+    color: #e1ad21; /* Warna emas untuk alamat */
+}
+
+.footer-logo {
+    max-width: 35%;
+    text-align: right;
+}
+
+.footer-logo img {
+    max-height: 80px; /* Sesuaikan tinggi logo agar proporsional */
+    max-width: 100%;
+    margin-left: 20px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+

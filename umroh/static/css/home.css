@@ -1,0 +1,516 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Navbar Default */
+/* Navbar Default */
+.navbar {
+    background-color: #f8f8f8;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #666;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Shrink Effect */
+.navbar.shrink {
+    padding: 5px 20px;
+    background-color: #f8f8f8;
+}
+
+.navbar-inner {
+    display: flex; /* Mengatur elemen dalam satu baris */
+    justify-content: space-between; /* Memberi jarak antara logo dan menu */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    max-width: 1200px; /* Membatasi lebar navbar */
+    margin: 0 auto; /* Agar navbar berada di tengah */
+}
+
+/* Logo */
+.logo img {
+    width: 130px; /* Ukuran default logo */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar.shrink .logo img {
+    width: 100px; /* Ukuran logo mengecil */
+}
+
+/* Navigation Menu */
+/* Navigation Menu */
+nav ul {
+    display: flex; /* Menjadikan menu dalam satu baris */
+    gap: 30px; /* Memberi jarak antar menu */
+    list-style: none; /* Menghilangkan bullet point */
+    margin: 0; /* Menghapus margin default */
+    padding: 0; /* Menghapus padding default */
+}
+
+nav ul li {
+    position: relative; /* Dibutuhkan untuk border bottom effect */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan underline */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold; /* Tebalkan font */
+    color: #666; /* Warna teks default */
+    padding: 10px 5px; /* Ruang di sekitar teks */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #a3066c; /* Warna saat hover */
+}
+
+/* Active Link */
+nav ul li a.active {
+    color: #555; /* Warna teks untuk menu aktif */
+    border-bottom: 2px solid #a3066c; /* Garis bawah untuk menu aktif */
+}
+
+/* Hover Effect - Garis bawah animasi */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #a3066c;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Garis bawah muncul saat hover */
+}
+
+
+
+/* Banner Slider */
+.banner-slider {
+    position: relative;
+    max-width: 1200px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-slider .slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.banner-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-slider .slide.active {
+    display: block;
+    opacity: 1;
+    position: relative;
+}
+
+.banner-slider .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.banner-slider .caption h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.banner-slider .caption p {
+    font-size: 1rem;
+}
+
+/* Controls */
+.banner-slider .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.banner-slider .controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 4px;
+}
+
+.banner-slider .controls button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Dots */
+.banner-slider .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.banner-slider .dot {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.banner-slider .dot.active {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section: Why Choose Us */
+.kenapa-pilih-section {
+    padding: 2rem 1rem;
+    background: #a3066c;
+    text-align: center;
+}
+
+.kenapa-pilih-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.kenapa-pilih-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:#e08d26; ;
+}
+
+.kenapa-pilih-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.kenapa-pilih-item {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.kenapa-pilih-item img {
+    width: 50px;
+    margin-bottom: 1rem;
+}
+
+/* Testimonials */
+#testimonials {
+    padding: 2rem 1rem;
+    background: #007bff;
+    color: #fff;
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial {
+    max-width: 800px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+}
+
+/* Contact Info */
+#contact-info {
+    padding: 2rem 1rem;
+    text-align: center;
+    background: #a3066c;
+    color: #fff;
+}
+
+#contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#contact-info p {
+    margin: 0.5rem 0;
+}
+
+
+/* Umrah Program Section */
+#program-umroh {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.umroh-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.umroh-item {
+    max-width: 250px;
+    text-align: center;
+}
+
+.umroh-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.umroh-item img:hover {
+    transform: scale(1.05);
+}
+
+.umroh-item h3 {
+    font-size: 1.2em;
+    margin: 10px 0 5px;
+}
+
+.umroh-item p {
+    font-size: 1em;
+    color: #333;
+}
+
+.umroh-item p del {
+    color: red;
+}
+
+.cta {
+    margin-top: 15px;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #32CD32;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta a:hover {
+    background-color: #28a745;
+}
+
+/* Info Section Styling */
+#info-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Warna latar belakang */
+}
+
+#info-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara gambar dan teks */
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+}
+
+.info-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan gambar */
+}
+
+.info-text {
+    flex: 40%; /* Teks memenuhi sisa ruang */
+}
+
+
+.info-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+.info-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .info-content {
+        flex-direction: column; /* Tumpuk gambar di atas teks pada layar kecil */
+        text-align: center;
+    }
+
+    .info-text h2 {
+        font-size: 24px;
+    }
+}
+
+
+footer {
+    background-color: #9c346a; /* Warna latar belakang sesuai gambar */
+    color: white;
+    padding: 30px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Agar tetap rapi di layar kecil */
+}
+
+.footer-text {
+    max-width: 60%;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.footer-text strong {
+    font-weight: bold;
+}
+
+.footer-text .highlight {
+    color: #e1ad21; /* Warna emas untuk alamat */
+}
+
+.footer-logo {
+    max-width: 35%;
+    text-align: right;
+}
+
+.footer-logo img {
+    max-height: 80px; /* Sesuaikan tinggi logo agar proporsional */
+    max-width: 100%;
+    margin-left: 20px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.menu-toggle {
+    display: none; /* Sembunyikan secara default */
+    cursor: pointer; /* Tambahkan pointer saat hover */
+    font-size: 24px; /* Ukuran icon toggler */
+}
+
+@media (max-width: 768px) {
+    /* Toggler button visible */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide menu by default */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 250px;
+        background-color: #fff;
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 60px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        transition: left 0.3s ease-in-out;
+        z-index: 999;
+        
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    .nav-menu ul li a {
+        padding: 15px 20px;
+        width: 100%;
+        
+    }
+
+    /* When toggler is active */
+    .nav-menu.active {
+        left: 0;
+        border-bottom: 1px solid #ccc;
+    }
+}
+

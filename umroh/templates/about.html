@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang - Nusa Travel</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    
+    <!-- Navbar -->
+<header class="navbar">
+        <div class="navbar-inner">
+            <div class="logo">
+                <img src="{% static 'images/logotravel.png' %}" alt="Nusa Travel">
+            </div>
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">Tentang</a></li>
+                    <li><a href="{%url 'paket_list'%}">Paket Umroh</a></li>
+                    <li><a href="{% url 'land_arrangement_service' %}">Land Arrangement</a></li>
+                    <li><a href="{% url 'contact' %}">Kontak</a></li>
+                    <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="nusa"><strong>Nusa Travel Cabang Tangerang</strong></h1>
+        <section id="about">
+            <div class="about-container">
+                <div class="image-content">
+                    <img src="{% static 'images/about.jpg' %}" alt="Galeri Jamaah" class="gallery-image">
+                </div>
+                <div class="text-content">
+                    <h2>Tentang Kami</h2>
+                    <p>
+                        Nusa Travel (PT. Madina Safar Nusantara) adalah<br> Biro Perjalanan Wisata dan Penyelenggara Perjalanan Ibadah Umroh (PPIU)<br>yang berdiri pada tahun 2019.
+                    </p>
+        
+                    <h3>Izin Resmi</h3>
+                    <ul>
+                        <li>Kementerian Agama dengan nomor izin 91204019520450001</li>
+                        <li>Terdaftar di Siskopatuh sebagai PT. Madina Safar Nusantara</li>
+                        <li>Tergabung dalam AMPUH (Afiliasi Mandiri Penyelenggara Umroh dan Haji)</li>
+                    </ul>
+        
+                    <h3>Komitmen Kami</h3>
+                    <p>
+                        Kami berkomitmen memberikan pelayanan terbaik kepada setiap tamu dan jamaah untuk mendapatkan pengalaman perjalanan yang terbaik.
+                        Untuk itu, kami didukung oleh tim profesional, tersertifikasi, dan berpengalaman baik di dalam negeri maupun di negara tujuan.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team">
+            <h1>Manajemen</h1>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="{% static 'images/manajemen1.png' %}" alt="Amirul Hasan" class="team-image">
+                    <h4>AMIRUL HASAN</h4>
+                    <p>co-Founder / CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="{% static 'images/manajemen2.png' %}" alt="Muhammad Kamaluddin" class="team-image">
+                    <h4>MUHAMMAD KAMALUDDIN</h4>
+                    <p>co-Founder / CCO</p>
+                </div>
+                <div class="team-member">
+                    <img src="{% static 'images/manajemen3.png' %}" alt="Nurhidayat Firmansyah" class="team-image">
+                    <h4>NUHRIDAYAT FIRMANSYAH</h4>
+                    <p>co-Founder / CBDO</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="address">
+            <h3>Alamat Kantor</h3>
+            <p>
+                Komplek Pamulang Permai Blok AX 5/18<br>
+                Jl. Permai Raya 5,Pamulang<br>
+                Tangerang Selatan.
+            </p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7315480540035!2d106.73887042919445!3d-6.3430592999999985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69edb555555555%3A0x9df355925a18a64a!2sKomplek%20Pamulang%20Permai%20Blok%20AX%205%2F18%2C%20Jl.%20Permai%20Raya%205%2C%20Pamulang%2C%20Tangerang%20Selatan!5e0!3m2!1sid!2sid!4v1614648178974!5m2!1sid!2sid" 
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <!-- Footer -->
+    {% load static %}
+<footer>
+    <div class="footer-content">
+        <div class="footer-text">
+            <p><strong>Nusa Travel Cabang Tangerang</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+            <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
+            <p><strong>ALAMAT:</strong> 
+                <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
+            </p>
+            <p><strong>Nusa Travel Sejak Tahun 2019 – 2025</strong></p>
+        </div>
+        <div class="footer-logo">
+            <img src="{% static 'images/partner.png' %}" alt="Partner Logos">
+            <img src="{% static 'images/maskapai.png' %}" alt="Airline Logos">
+        </div>
+    </div>
+    <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
+</footer>
+
+<script src="{% static 'js/about.js' %}"></script>
+</body>
+</html>

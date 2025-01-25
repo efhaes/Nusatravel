@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Arrangement - Nusa Travel</title>
+    <link rel="stylesheet" href="{% static 'css/testimoni.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="logo">
+                <img src="{% static 'images/logotravel.png' %}" alt="Nusa Travel">
+            </div>
+            
+            <div class="menu-toggle">☰</div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">Tentang</a></li>
+                    <li><a href="{%url 'paket_list'%}">Paket Umroh</a></li>
+                    <li><a href="{% url 'land_arrangement_service' %}">Land Arrangement</a></li>
+                    <li><a href="{% url 'contact' %}">Kontak</a></li>
+                    <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>TESTIMONI NUSATRAVEL CABANG TANGERANG</h1>
+            <p>Allah tidak memanggil orang – orang yang mampu, tapi Allah memampukan orang – orang yang terpanggil untuk berkunjung ke Baitullah.</p>
+        </div>
+    </section>
+
+
+    <section id="testimoni">
+        <h2>Video Testimoni Jamaah</h2>
+        <div class="testimoni-container">
+            <div class="testimoni-item">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/o7fz8eCMQSA?si=RgIPibfapX1FNuEE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="testimoni-overlay">
+                    <p>Testimoni </p>
+                </div>
+            </div>
+            <div class="testimoni-item">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/q0Ziq5D2jiQ?si=flbsOfqTh2k1O0KE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="testimoni-overlay">
+                    <p>Testimoni 2</p>
+                </div>
+
+            </div>
+            <div class="testimoni-item">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/KlZ1Mtz_YjM?si=J6h6CzO8c6B2oAvp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="testimoni-overlay">
+                    <p>Testimoni 3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="gallery">
+        <h2>Galeri Jamaah</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="{% static 'images/mekkah.jpg' %}" alt="Jamaah 1">
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'images/mekah.jpg' %}" alt="Jamaah 2">
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'images/madeenah.jpeg' %}" alt="Jamaah 3">
+            </div>
+        </div>
+    </section>
+
+
+   <!-- Footer -->
+   <footer>
+    <div class="footer-content">
+        <div class="footer-text">
+            <p><strong>Nusa Travel CABANG TANGERANG</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+            <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
+            <p><strong>ALAMAT:</strong> 
+                <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
+            </p>
+            <p><strong>Nusa Travel Sejak Tahun 2019 – 2025</strong></p>
+        </div>
+        <div class="footer-logo">
+            <img src="{% static 'images/partner.png' %}" alt="Partner Logos">
+            <img src="{% static 'images/maskapai.png' %}" alt="Airline Logos">
+        </div>
+    </div>
+    <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
+</footer>
+
+<script src="{% static 'js/testimoni.js' %}"></script>
+</body>
+</html>
+
+    

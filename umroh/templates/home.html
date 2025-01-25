@@ -1,0 +1,179 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusa Travel</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <div class="logo">
+                <img src="{% static 'images/logotravel.png' %}" alt="Logo">
+            </div>
+            <button class="menu-toggle" onclick="toggleNavbar()">☰</button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">Tentang</a></li>
+                    <li><a href="{%url 'paket_list'%}">Paket Umroh</a></li>
+                    <li><a href="{% url 'land_arrangement_service' %}">Land Arrangement</a></li>
+                    <li><a href="{% url 'contact' %}">Kontak</a></li>
+                    <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+<!-- image slider -->
+<div class="banner-slider">
+    <!-- Slide Images -->
+    <div class="slide active">
+        <img src="https://media.istockphoto.com/id/458729785/id/foto/kaabah-di-makkah-kerajaan-arab-saudi.jpg?s=612x612&w=0&k=20&c=P_Ylnc-I2UXgaFqF2JTjcFYq-bjSbAm7xl1HsHEoTlA=" alt="Mekkah">
+
+
+        <div class="caption">
+            <h2>Explore Mekkah</h2>
+            <p>Keindahan Mekkah yang menakjubkan</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="{% static 'images/masjid.webp' %}" alt="Madinah">
+        <div class="caption">
+            <h2>Discover Madinah</h2>
+            <p>Ketenangan di kota suci Madinah</p>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="{% static 'images/banner2.jpeg' %}" alt="Kaabah">
+        <div class="caption">
+            <h2>Experience Spirituality</h2>
+            <p>Kedamaian di Masjidil Haram</p>
+        </div>
+    </div>
+
+    <!-- Controls (Prev/Next) -->
+    <div class="controls">
+        <button class="prev">&laquo;</button>
+        <button class="next">&raquo;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+
+        <!-- Info Section -->
+        <section id="info-section" class="info-section">
+            <div class="container">
+                <div class="info-content">
+                    
+                    <div class="info-image">
+                        <img src="{% static 'images/umroh.png' %}" alt="Travel Agency">
+                    </div>
+                    <div class="info-text">
+                        <h2> Nusa Travel Cabang Tangerang</h2>
+                        <h2>Assalamualaikum</h2>
+                        <p>
+                            Memilih travel agency adalah salah satu bagian terpenting dalam merencanakan perjalanan ibadah umroh atau pun hanya sekedar untuk berwisata.
+                        </p>
+                        <p>
+                            Sebagai travel agency profesional, kami senantiasa memberikan pengalaman umroh dan wisata yang mengesankan. 
+                            Biarkan kami yang melakukan langkah-langkah strategis untuk memastikan perjalanan umroh atau perjalanan wisata anda berjalan lancar dan memuaskan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="kenapa-pilih" class="kenapa-pilih-section">
+            <h2>Mengapa Memilih Nusa Travel?</h2>
+            <div class="kenapa-pilih-container">
+                <div class="kenapa-pilih-item">
+                    <div class="icon">
+                        <img src="{% static 'images/key.png' %}" alt="Resmi dan Terdaftar">
+                    </div>
+                    <h3>Resmi dan Terdaftar</h3>
+                    <p>Biro Perjalanan Wisata resmi dengan badan hukum PT. Madina Safar Nusantara. Terdaftar dan disahkan oleh KEMENKUMHAM.  Izin Penyelenggaran Perjalanan Ibadah Umrah (PPIU) dengan nomor: 91204019520450001.</p>
+                </div>
+                <div class="kenapa-pilih-item">
+                    <div class="icon">
+                        <img src="{% static 'images/check.png' %}" alt="Amanah">
+                    </div>
+                    <h3>Amanah</h3>
+                    <p>Senantiasa menjaga kepercayaan konsumen dan mengedepankan syariat Islam dalam menjalankan bisnis perjalanan.</p>
+                </div>
+                <div class="kenapa-pilih-item">
+                    <div class="icon">
+                        <img src="{% static 'images/star.png' %}" alt="Profesional">
+                    </div>
+                    <h3>Profesional</h3>
+                    <p>Tim yang profesional dan berpengalaman. Alhamdulillah Jamaah Nusa Travel 100% selalu berangkat umroh.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Program Umroh Section -->
+        <section id="program-umroh">
+            <h2>PROGRAM UMROH NUSA TRAVEL CABANG TANGERANG</h2>
+            <br>
+            <div class="umroh-container">
+                {% for paket in paket_umroh %}
+                <div class="umroh-item">
+                    <a href="{% url 'paket_detail' paket.id %}">
+                        <img src="{{ paket.gambar.url }}" alt="{{ paket.nama_paket }}">
+                    </a>
+                    <h3>{{ paket.nama_paket }}</h3>
+                    <p>Rp. {{ paket.harga|floatformat:2 }} JT</p>
+                    <div class="cta">
+                        <a href="" 
+                           class="whatsapp-link" 
+                           data-paket="{{ paket.nama_paket }}" 
+                           data-harga="{{ paket.harga|floatformat:2 }}">DAFTAR SEKARANG</a>
+                    </div>
+                </div>
+                {% endfor %}  
+            </div>
+        </section>
+
+        
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p><strong>Nusa Travel CABANG TANGERANG</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+                <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
+                <p><strong>ALAMAT:</strong> 
+                    <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
+                </p>
+                <p><strong>Nusa Travel Sejak Tahun 2019 – 2025</strong></p>
+            </div>
+            <div class="footer-logo">
+                <img src="{% static 'images/partner.png' %}" alt="Partner Logos">
+                <img src="{% static 'images/maskapai.png' %}" alt="Airline Logos">
+            </div>
+        </div>
+        <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/home.js' %}"> </script>
+
+</body>
+</html>
+

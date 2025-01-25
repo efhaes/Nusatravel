@@ -1,0 +1,37 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('nav ul');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Sembunyikan menu saat halaman di-scroll
+window.addEventListener('scroll', () => {
+    if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const waLink = document.querySelector('.whatsapp-link');
+    
+    if (waLink) {
+        waLink.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Ambil data paket
+            const paketName = waLink.getAttribute('data-paket');
+            const paketHarga = waLink.getAttribute('data-harga');
+            
+            // Encode pesan untuk WhatsApp
+            const waMessage = `Halo, saya tertarik mendaftar Paket ${paketName} dengan harga Rp. ${paketHarga}JT. Mohon info lebih lanjut.`;
+            const waUrl = `https://wa.me/85156516077?text=${encodeURIComponent(waMessage)}`;
+            
+            // Arahkan ke WhatsApp
+            window.location.href = waUrl;
+        });
+    }
+});
+
+
