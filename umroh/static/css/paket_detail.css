@@ -51,7 +51,7 @@ body {
 /* Navigation Menu */
 nav ul {
     display: flex; /* Menjadikan menu dalam satu baris */
-    gap: 30px; /* Memberi jarak antar menu */
+    gap: 15px; /* Memberi jarak antar menu */
     list-style: none; /* Menghilangkan bullet point */
     margin: 0; /* Menghapus margin default */
     padding: 0; /* Menghapus padding default */

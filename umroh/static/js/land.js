@@ -43,3 +43,34 @@
             navMenu.classList.remove('active');
         }
     });
+
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('shrink');
+        } else {
+            navbar.classList.remove('shrink');
+        }
+    });
+
+
+    // Autoplay
+    let autoplay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }, slideInterval);
+
+    // Reset autoplay setelah interaksi
+    const resetAutoplay = () => {
+        clearInterval(autoplay);
+        autoplay = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }, slideInterval);
+    };
+
+    // Tampilkan slide pertama saat halaman dimuat
+    showSlide(currentIndex);
+
+
+    

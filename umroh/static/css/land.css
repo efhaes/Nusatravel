@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 20px;
+    line-height: 1.6;
+
     text-align: center;
 }
 
@@ -29,7 +30,7 @@ a:hover {
     text-align: center;
 }
 
-/* Navbar Styles */
+/* Navbar Default */
 .navbar {
     background-color: #f8f8f8;
     padding: 15px 20px;
@@ -40,61 +41,79 @@ a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+/* Shrink Effect */
+.navbar.shrink {
+    padding: 5px 20px;
+    background-color: #f8f8f8;
+}
+
 .navbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex; /* Mengatur elemen dalam satu baris */
+    justify-content: space-between; /* Memberi jarak antara logo dan menu */
+    align-items: center; /* Menyelaraskan elemen secara vertikal */
+    max-width: 1200px; /* Membatasi lebar navbar */
+    margin: 0 auto; /* Agar navbar berada di tengah */
 }
 
 /* Logo */
 .logo img {
-    width: 130px;
+    width: 130px; /* Ukuran default logo */
     transition: width 0.3s ease-in-out;
 }
 
+.navbar.shrink .logo img {
+    width: 100px; /* Ukuran logo mengecil */
+}
+
+/* Navigation Menu */
 /* Navigation Menu */
 nav ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex; /* Menjadikan menu dalam satu baris */
+    gap: 15px; /* Memberi jarak antar menu */
+    list-style: none; /* Menghilangkan bullet point */
+    margin: 0; /* Menghapus margin default */
+    padding: 0; /* Menghapus padding default */
+}
+
+nav ul li {
+    position: relative; /* Dibutuhkan untuk border bottom effect */
 }
 
 nav ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    color: #666;
-    padding: 10px 5px;
-    transition: color 0.3s ease;
+    text-decoration: none; /* Menghilangkan underline */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold; /* Tebalkan font */
+    color: #666; /* Warna teks default */
+    padding: 10px 5px; /* Ruang di sekitar teks */
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #a3066c;
+    color: #a3066c; /* Warna saat hover */
 }
 
+/* Active Link */
 nav ul li a.active {
-    color: #555;
-    border-bottom: 2px solid #a3066c;
+    color: #555; /* Warna teks untuk menu aktif */
+    border-bottom: 2px solid #a3066c; /* Garis bawah untuk menu aktif */
 }
 
+/* Hover Effect - Garis bawah animasi */
 nav ul li a::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
-    height: 1px;
+    height: 2px;
     background-color: #a3066c;
     transition: width 0.3s ease-in-out;
 }
 
 nav ul li a:hover::after {
-    width: 100%;
+    width: 100%; /* Garis bawah muncul saat hover */
 }
+
 
 
 

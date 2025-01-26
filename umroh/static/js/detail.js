@@ -35,3 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+let autoplay = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}, slideInterval);
+
+// Reset autoplay setelah interaksi
+const resetAutoplay = () => {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }, slideInterval);
+};
+
+// Tampilkan slide pertama saat halaman dimuat
+showSlide(currentIndex);
+

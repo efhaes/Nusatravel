@@ -39,26 +39,24 @@
 <div class="banner-slider">
     <!-- Slide Images -->
     <div class="slide active">
-        <img src="https://media.istockphoto.com/id/458729785/id/foto/kaabah-di-makkah-kerajaan-arab-saudi.jpg?s=612x612&w=0&k=20&c=P_Ylnc-I2UXgaFqF2JTjcFYq-bjSbAm7xl1HsHEoTlA=" alt="Mekkah">
-
-
+        <img src="{% static 'images/kabah.webp' %}" alt="Madinah">
         <div class="caption">
             <h2>Explore Mekkah</h2>
             <p>Keindahan Mekkah yang menakjubkan</p>
         </div>
     </div>
     <div class="slide">
-        <img src="{% static 'images/masjid.webp' %}" alt="Madinah">
+        <img src="{% static 'images/mekah.webp' %}" alt="Madinah">
         <div class="caption">
-            <h2>Discover Madinah</h2>
-            <p>Ketenangan di kota suci Madinah</p>
+            <h2>Discover Mekkah</h2>
+            <p>Ketenangan di kota suci mekkah</p>
         </div>
     </div>
     <div class="slide">
         <img src="{% static 'images/banner2.jpeg' %}" alt="Kaabah">
         <div class="caption">
             <h2>Experience Spirituality</h2>
-            <p>Kedamaian di Masjidil Haram</p>
+            <p>Kedamaian di kota suci Madinah</p>
         </div>
     </div>
 
@@ -136,7 +134,7 @@
                         <img src="{{ paket.gambar.url }}" alt="{{ paket.nama_paket }}">
                     </a>
                     <h3>{{ paket.nama_paket }}</h3>
-                    <p>Rp. {{ paket.harga|floatformat:2 }} JT</p>
+                    <h3>Rp. {{ paket.harga|floatformat:2 }} JT</h3>
                     <div class="cta">
                         <a href="" 
                            class="whatsapp-link" 

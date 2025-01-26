@@ -11,3 +11,6 @@ window.addEventListener('scroll', () => {
         navMenu.classList.remove('active');
     }
 });
+
+
+

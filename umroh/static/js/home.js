@@ -93,3 +93,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll(".kenapa-pilih-item");
+    
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("appear");
+                    }
+                });
+            },
+            { threshold: 0.2 } // Elemen terlihat 20% sebelum animasi dimulai
+        );
+    
+        items.forEach((item) => observer.observe(item));
+    });
+    
