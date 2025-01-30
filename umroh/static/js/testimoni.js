@@ -7,6 +7,16 @@ document.querySelectorAll('.testimoni-item').forEach(item => {
     });
 });
 
+    // Tambahkan event listener untuk mendeteksi scroll
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('shrink');
+        } else {
+            navbar.classList.remove('shrink');
+        }
+    });
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('nav ul');
 

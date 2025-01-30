@@ -46,6 +46,7 @@ a:hover {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    color: #9c346a;
 }
 
 /* Logo */
@@ -96,6 +97,11 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+.navbar.shrink {
+    padding: 5px 20px;
+    background-color: #f8f8f8;
+}
+
 
 
 
@@ -116,7 +122,7 @@ nav ul li a:hover::after {
     }
 
     .logo img {
-        width: 130px;
+        width: 100px;
         transition: width 0.3s ease-in-out;
     }
 

@@ -35,7 +35,8 @@ body {
     justify-content: space-between; /* Memberi jarak antara logo dan menu */
     align-items: center; /* Menyelaraskan elemen secara vertikal */
     max-width: 1200px; /* Membatasi lebar navbar */
-    margin: 0 auto; /* Agar navbar berada di tengah */
+    margin: 0 auto;
+    color: #9c346a; /* Agar navbar berada di tengah */
 }
 
 /* Logo */

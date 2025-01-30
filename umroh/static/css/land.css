@@ -53,6 +53,7 @@ a:hover {
     align-items: center; /* Menyelaraskan elemen secara vertikal */
     max-width: 1200px; /* Membatasi lebar navbar */
     margin: 0 auto; /* Agar navbar berada di tengah */
+    color: #9c346a;
 }
 
 /* Logo */
@@ -135,8 +136,9 @@ nav ul li a:hover::after {
     }
 
     .logo img {
-        width: 130px;
+        width: 100px;
         transition: width 0.3s ease-in-out;
+        
     }
 
     nav ul {
@@ -220,6 +222,44 @@ main h1 {
     padding: 20px;
     text-align: left;
 }
+
+/* Style untuk tombol JOIN Sekarang */
+.whatsapp-link {
+    background: linear-gradient(135deg, #25d366, #128c7e); /* Gradien biru */
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 50px; /* Membuat tombol lebih melengkung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Animasi transisi yang halus */
+    position: relative;
+    display: inline-block;
+}
+
+.whatsapp-link:hover {
+    background: linear-gradient(45deg, #128c7e, #25d366); /* Efek hover dengan gradien terbalik */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih tebal saat hover */
+    transform: scale(1.05); /* Memperbesar tombol saat hover */
+}
+
+.whatsapp-link:before {
+    /* Ikon WhatsApp */
+    font-size: 24px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.whatsapp-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #1a73e8; /* Fokus dengan outline biru terang */
+}
+
 
 /* Responsif untuk tablet (maksimum 2 card per baris) */
 @media (max-width: 1024px) {

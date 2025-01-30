@@ -12,6 +12,15 @@ window.addEventListener('scroll', () => {
     }
 });
 
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+    } else {
+        navbar.classList.remove('shrink');
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const waLink = document.querySelector('.whatsapp-link');
@@ -26,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Encode pesan untuk WhatsApp
             const waMessage = `Halo, saya tertarik mendaftar Paket ${paketName} dengan harga Rp. ${paketHarga}JT. Mohon info lebih lanjut.`;
-            const waUrl = `https://wa.me/85156516077?text=${encodeURIComponent(waMessage)}`;
+            const waUrl = `https://wa.me/6281381016464?text=${encodeURIComponent(waMessage)}`;
             
             // Arahkan ke WhatsApp
             window.location.href = waUrl;

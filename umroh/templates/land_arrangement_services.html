@@ -14,7 +14,7 @@
             <div class="logo">
                 <img src="{% static 'images/logotravel.png' %}" alt="Nusa Travel">
             </div>
-            
+            <h3>CABANG TANGERANG SELATAN</h3>
             <div class="menu-toggle">☰</div>
             <nav>
                 <ul>
@@ -41,7 +41,7 @@
                             Nusa Travel menyediakan paket Land Arrangement (LA), Paket Jeddah-Jeddah / Madinah-Jeddah untuk penyelenggara Umroh dalam melayani Tamu Allah dengan harga yang kompetitif dan pelayanan maksimal.
                         </p>
                         <p>
-                            Kami memiliki tim yang solid yang akan melayani dan membantu Anda mulai dari Jeddah, Madinah, hingga Mekkah. Kami siap melayani Anda untuk kenyamanan ibadah para Tamu Allah. Silakan hubungi kami di 081210618231.
+                            Kami memiliki tim yang solid yang akan melayani dan membantu Anda mulai dari Jeddah, Madinah, hingga Mekkah. Kami siap melayani Anda untuk kenyamanan ibadah para Tamu Allah. Silakan hubungi kami di 081381016464.
                         </p>
                     </div>
                     <div class="info-image">
@@ -65,8 +65,13 @@
                         <li><strong>Hotel Mekkah:</strong> {{ paket.hotel_mekkah }}</li>
                         <li><strong>Hotel Madinah:</strong> {{ paket.hotel_madinah }}</li>
                     </ul>
-                    <button class="pesan-button">Pesan Sekarang</button>
+                    <button onclick="joinSekarang(event)"
+                   class="whatsapp-link" 
+                   data-paket="{{ paket.nama_paket }}" 
+                    data-harga="{{ paket.harga|floatformat:2 }}">Daftar Sekarang</button>
+                    
                 </div>
+                
             </div>
             {% empty %}
             <p>Belum ada paket untuk Land Arrangement saat ini.</p>
@@ -106,7 +111,7 @@
                     <li>Harga berlaku untuk musim 1445 H. Harga dapat berubah menyesuaikan rilis resmi hotel.</li>
                     <li>Paket meliputi 3 Malam di Madinah dan 4 Malam di Mekkah (Paket Umroh 9 Hari). Penambahan hari akan disesuaikan</li>
                     <li>Minimum pax 30, lebih atau kurang akan ada penyesuaian harga</li>
-                    <li>Untuk Paket VIP, Private, Hotel Kombinasi, silakan hubungi kami di 081210618231l</li>
+                    <li>Untuk Paket VIP, Private, Hotel Kombinasi, silakan hubungi kami di 081381016464</li>
 
                 </ul>
             </div>
@@ -119,7 +124,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-text">
-                <p><strong>Nusa Travel CABANG TANGERANG</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+                <p><strong>Nusa Travel Cabang Tangerang Selatan</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
                 <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
                 <p><strong>ALAMAT:</strong> 
                     <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
@@ -134,6 +139,101 @@
         <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
     </footer>
 
-    <script src="{% static 'js/land.js' %}"></script>
+    <script>
+        function toggleAccordion(element) {
+            var parent = element.parentElement;
+            var content = parent.querySelector('.accordion-content');
+            var icon = element.querySelector('.icon');
+            
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                icon.innerHTML = "➕";
+            } else {
+                content.style.display = "block";
+                icon.innerHTML = "➖";
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const colors = [
+                'linear-gradient(to right, #c77b30, #ff8d33)', // Warna 1
+                'linear-gradient(to right, #bebebe, #333)', // Warna 2
+                'linear-gradient(to right, #e09900, #e09900)', // Warna 3
+                'linear-gradient(to right, #9c346a, #d133ff)'  // Warna 4
+            ];
+        
+            // Ambil semua card paket
+            const paketItems = document.querySelectorAll('.paket-item,paket-body');
+        
+            // Assign warna ke setiap card
+            paketItems.forEach((paketItem, index) => {
+                const header = paketItem.querySelector('.paket-header');
+                header.style.background = colors[index % colors.length];
+            });
+        });
+    
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Sembunyikan menu saat halaman di-scroll
+        window.addEventListener('scroll', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shrink');
+            } else {
+                navbar.classList.remove('shrink');
+            }
+        });
+    
+    
+        // Autoplay
+        let autoplay = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }, slideInterval);
+    
+        // Reset autoplay setelah interaksi
+        const resetAutoplay = () => {
+            clearInterval(autoplay);
+            autoplay = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }, slideInterval);
+        };
+    
+        // Tampilkan slide pertama saat halaman dimuat
+        showSlide(currentIndex);
+    
+        function joinSekarang(event) {
+            event.preventDefault();
+        
+            // Ambil tombol yang diklik
+            const button = event.target;
+            
+            // Ambil data dari atribut tombol
+            const paketName = button.getAttribute('data-paket');
+            const paketHarga = button.getAttribute('data-harga');
+            
+            // Buat pesan untuk WhatsApp
+            const waMessage = `Assalamualaikum Admin, saya tertarik dengan  ${paketName} yang memiliki harga Rp. ${paketHarga} per pack. Mohon informasi lebih lanjut.`;
+            
+            // Buat URL WhatsApp
+            const waUrl = `https://wa.me/6281381016464?text=${encodeURIComponent(waMessage)}`;
+            
+            // Arahkan ke URL WhatsApp
+            window.location.href = waUrl;
+        }    
+    </script>
+
 </body>
 </html>

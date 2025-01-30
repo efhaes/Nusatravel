@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const paketHarga = link.getAttribute('data-harga');
                 
                 // Encode pesan untuk WhatsApp
-                const waMessage = `Halo Admin, Saya ingin mendaftar Paket ${paketName} dengan harga Rp. ${paketHarga} JT. Mohon informasi lebih lanjut.`;
-                const waUrl = `https://wa.me/81381016464?text=${encodeURIComponent(waMessage)}`;
+                const waMessage = `Assalamualaikum Admin, Saya ingin mendaftar Paket ${paketName} dengan harga Rp. ${paketHarga} JT. Mohon informasi lebih lanjut.`;
+                const waUrl = `https://wa.me/6281381016464?text=${encodeURIComponent(waMessage)}`;
                 
                 // Arahkan ke URL WhatsApp dengan pesan
                 window.location.href = waUrl;

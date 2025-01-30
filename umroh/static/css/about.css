@@ -60,6 +60,7 @@ a:hover {
     align-items: center; /* Menyelaraskan elemen secara vertikal */
     max-width: 1200px; /* Membatasi lebar navbar */
     margin: 0 auto; /* Agar navbar berada di tengah */
+    color: #9c346a;
 }
 
 /* Logo */
@@ -121,6 +122,11 @@ nav ul li a:hover::after {
     width: 100%; /* Garis bawah muncul saat hover */
 }
 
+.navbar.shrink {
+    padding: 5px 20px;
+    background-color: #f8f8f8;
+}
+
 
 
 
@@ -141,8 +147,11 @@ nav ul li a:hover::after {
     }
 
     .logo img {
-        width: 130px;
+        width: 100px;
         transition: width 0.3s ease-in-out;
+    }
+    .h3{
+        margin-right: auto;
     }
 
     nav ul {

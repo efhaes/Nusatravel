@@ -35,6 +35,7 @@ body {
     align-items: center; /* Menyelaraskan elemen secara vertikal */
     max-width: 1200px; /* Membatasi lebar navbar */
     margin: 0 auto; /* Agar navbar berada di tengah */
+    color: #9c346a;
 }
 
 /* Logo */
@@ -98,7 +99,7 @@ nav ul li a.active {
     }
 
     .logo img {
-        width: 130px;
+        width: 100px;
         transition: width 0.3s ease-in-out;
     }
 

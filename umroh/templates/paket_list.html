@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,44 +7,44 @@
     <title>Daftar Paket Umroh</title>
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
     <!-- Tambahkan Bootstrap -->
-
 </head>
 <body>
+
     <!-- Navbar -->
     <header class="navbar">
         <div class="navbar-inner">
             <div class="logo">
                 <img src="{% static 'images/logotravel.png' %}" alt="Nusa Travel">
             </div>
-            
+            <h3>CABANG TANGERANG SELATAN</h3>
             <div class="menu-toggle">☰</div>
             <nav>
                 <ul>
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">Tentang</a></li>
-                    <li><a href="{%url 'paket_list'%}">Paket Umroh</a></li>
+                    <li><a href="{% url 'paket_list' %}">Paket Umroh</a></li>
                     <li><a href="{% url 'land_arrangement_service' %}">Land Arrangement</a></li>
                     <li><a href="{% url 'contact' %}">Kontak</a></li>
                     <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
-                    
                 </ul>
             </nav>
         </div>
     </header>
-    
+
     <section class="hero-section">
         <div class="hero-content">
             <h1>Paket Umroh Tersedia</h1>
             <p>Allah tidak memanggil orang – orang yang mampu, tapi Allah memampukan orang – orang yang terpanggil untuk berkunjung ke Baitullah.</p>
         </div>
     </section>
-    
+
     <section class="packages">
         <div class="container">
             <div class="section-header">
                 <h2>PAKET UMROH NUSA TRAVEL CABANG TANGERANG</h2>
-                <h3>Pilih paket terbaik untuk perjalanan ibadah Anda</h3>
+                <h3>Pilih paket terbaik untuk perjalanan ibadah Anda</h3><br>
             </div>
+
             <div class="card-grid">
                 {% for paket in paket_umroh %}
                 <div class="card">
@@ -57,10 +57,10 @@
 
                     </div>
                     <div class="cta">
-                        <a href="" 
+                        <button onclick="joinSekarang(event)"
                            class="whatsapp-link" 
                            data-paket="{{ paket.nama_paket }}" 
-                           data-harga="{{ paket.harga|floatformat:2 }}">DAFTAR SEKARANG</a>
+                           data-harga="{{ paket.harga|floatformat:2 }}">DAFTAR SEKARANG</button>
                     </div>
                 </div>
                 {% empty %}
@@ -74,10 +74,10 @@
     <footer>
         <div class="footer-content">
             <div class="footer-text">
-                <p><strong>Nusa Travel CABANG TANGERANG</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
+                <p><strong>Nusa Travel Cabang Tangerang Selatan</strong> adalah Biro Perjalanan Wisata resmi dengan badan hukum perseroan bernama PT. Madina Safar Nusantara.</p>
                 <p><strong>KONTAK:</strong> 081381016464 (Agen Fildzah)</p>
                 <p><strong>ALAMAT:</strong> 
-                    <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang,Tangerang Selatan</span>
+                    <span class="highlight">Komplek Pamulang Permai Blok AX 5/18, Jl. Permai Raya 5, Pamulang, Tangerang Selatan</span>
                 </p>
                 <p><strong>Nusa Travel Sejak Tahun 2019 – 2025</strong></p>
             </div>
@@ -89,9 +89,54 @@
         <p class="copyright">&copy; {{ year|default:2025 }} Nusa Travel. All Rights Reserved.</p>
     </footer>
 
-    <!-- Tambahkan Bootstrap JS -->
-    <script src="{% static 'js/list.js' %}"></script>
+    <script>
+        console.log("Hallo, JavaScript berhasil dimuat!");
 
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("DOM sepenuhnya dimuat");
+
+            // Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+
+                // Sembunyikan menu saat halaman di-scroll
+                window.addEventListener('scroll', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            // Tambahkan event listener untuk tombol WhatsApp
+            document.querySelectorAll('.whatsapp-link').forEach(button => {
+                button.addEventListener('click', function () {
+                    const paketName = this.getAttribute('data-paket');
+                    const paketHarga = this.getAttribute('data-harga').replace(',', '.');
+
+                    const waMessage = `Assalamualaikum Admin, Saya ingin mendaftar Paket ${paketName} dengan harga Rp. ${paketHarga} JT. Mohon informasi lebih lanjut.`;
+                    const waUrl = `https://wa.me/6281381016464?text=${encodeURIComponent(waMessage)}`;
+
+                    window.location.href = waUrl;
+                    console.log("Redirecting to: ", waUrl);
+                });
+            });
+
+            // Navbar Shrink Effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shrink');
+                } else {
+                    navbar.classList.remove('shrink');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
